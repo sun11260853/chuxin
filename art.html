@@ -176,52 +176,128 @@ lb.addEventListener("click", function(){ lb.classList.remove("show"); lbimg.src 
 document.addEventListener("keydown", function(e){ if(e.key === "Escape"){ lb.classList.remove("show"); lbimg.src = ""; } });
 (function(){
 const c = document.getElementById("ripple");
-if(!c){ return; }
+if(!c || !c.getContext){ return; }
 if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches){ return; }
 const ctx = c.getContext("2d");
-const dpr = Math.min(window.devicePixelRatio || 1, 2);
-let ripples = [], running = false, lx = -999, ly = -999, lt = 0;
-function size(){
-c.width = Math.floor(window.innerWidth * dpr);
-c.height = Math.floor(window.innerHeight * dpr);
-c.style.width = window.innerWidth + "px";
-c.style.height = window.innerHeight + "px";
-ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+const coarse = !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+let W = 0, H = 0, DPR = 1;
+const rings = [], dust = [], sparks = [];
+let lx = -9999, ly = -9999, lt = 0, nextAmbient = 0, last = 0, running = false, paused = false;
+function resize(){
+DPR = Math.min(window.devicePixelRatio || 1, coarse ? 1.5 : 2);
+W = window.innerWidth;
+H = window.innerHeight;
+c.width = Math.floor(W * DPR);
+c.height = Math.floor(H * DPR);
+c.style.width = W + "px";
+c.style.height = H + "px";
+ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+seed();
 }
-function spawn(x, y){
+function seed(){
+const n = coarse ? Math.min(44, Math.round(W * H / 16000)) : Math.min(115, Math.round(W * H / 13000));
+dust.length = 0;
+for(let i = 0; i < n; i++){
+dust.push({x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.26, vy: (Math.random() - 0.5) * 0.26, r: 0.8 + Math.random() * 1.9, a: 0.18 + Math.random() * 0.32, glow: 0, warm: Math.random() < 0.62});
+}
+}
+function addRing(x, y, big){
+rings.push({x: x, y: y, r: 4, max: big ? 300 : 175, life: 1, sp: big ? 3.4 : 2.1});
+const cap = coarse ? 12 : 22;
+while(rings.length > cap){ rings.shift(); }
+if(big){
+for(let i = 0; i < 22; i++){
+const a = (i / 22) * 6.2832 + Math.random() * 0.3;
+const v = 1.2 + Math.random() * 2.2;
+sparks.push({x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, r: 1 + Math.random() * 1.6, life: 1, warm: Math.random() < 0.55});
+}
+}
+if(!running){ running = true; last = performance.now(); requestAnimationFrame(step); }
+}
+function spawn(x, y, big){
 const now = performance.now();
 const dx = x - lx, dy = y - ly;
-if(now - lt < 110 || Math.sqrt(dx * dx + dy * dy) < 24){ return; }
+if(!big && (now - lt < 70 || Math.sqrt(dx * dx + dy * dy) < 16)){ return; }
 lx = x; ly = y; lt = now;
-ripples.push({x: x, y: y, r: 5, life: 1});
-if(ripples.length > 22){ ripples.shift(); }
-if(!running){ running = true; requestAnimationFrame(step); }
+addRing(x, y, !!big);
 }
-function step(){
-const w = window.innerWidth, h = window.innerHeight;
-ctx.clearRect(0, 0, w, h);
-for(let i = ripples.length - 1; i >= 0; i--){
-const rp = ripples[i];
-rp.r += 1.5;
-rp.life -= 0.017;
-if(rp.life <= 0){ ripples.splice(i, 1); continue; }
-ctx.beginPath();
-ctx.arc(rp.x, rp.y, rp.r, 0, 6.2832);
-ctx.strokeStyle = "rgba(200,164,92," + (rp.life * 0.34).toFixed(3) + ")";
-ctx.lineWidth = 1.5;
+function step(now){
+if(paused){ running = false; return; }
+const dt = Math.min(2.2, (now - last) / 16.667) || 1;
+last = now;
+ctx.clearRect(0, 0, W, H);
+if(now > nextAmbient){
+nextAmbient = now + (coarse ? 2400 : 1700) + Math.random() * 1600;
+addRing(W * 0.12 + Math.random() * W * 0.76, H * 0.14 + Math.random() * H * 0.68, false);
+}
+for(let i = rings.length - 1; i >= 0; i--){
+const g = rings[i];
+g.r += g.sp * dt;
+g.life -= 0.011 * dt;
+if(g.life <= 0 || g.r > g.max){ rings.splice(i, 1); continue; }
+ctx.beginPath(); ctx.arc(g.x, g.y, g.r, 0, 6.2832);
+ctx.strokeStyle = "rgba(200,164,92," + (g.life * 0.55).toFixed(3) + ")";
+ctx.lineWidth = 1.9;
 ctx.stroke();
-ctx.beginPath();
-ctx.arc(rp.x, rp.y, rp.r * 0.58, 0, 6.2832);
-ctx.strokeStyle = "rgba(168,32,26," + (rp.life * 0.2).toFixed(3) + ")";
+ctx.beginPath(); ctx.arc(g.x, g.y, g.r * 0.72, 0, 6.2832);
+ctx.strokeStyle = "rgba(200,164,92," + (g.life * 0.3).toFixed(3) + ")";
+ctx.lineWidth = 1.2;
+ctx.stroke();
+ctx.beginPath(); ctx.arc(g.x, g.y, g.r * 0.46, 0, 6.2832);
+ctx.strokeStyle = "rgba(168,32,26," + (g.life * 0.28).toFixed(3) + ")";
 ctx.lineWidth = 1;
 ctx.stroke();
 }
-if(ripples.length){ requestAnimationFrame(step); } else { running = false; ctx.clearRect(0, 0, w, h); }
+for(let i = 0; i < dust.length; i++){
+const p = dust[i];
+p.x += p.vx * dt;
+p.y += p.vy * dt;
+if(p.x < -24){ p.x = W + 24; }
+if(p.x > W + 24){ p.x = -24; }
+if(p.y < -24){ p.y = H + 24; }
+if(p.y > H + 24){ p.y = -24; }
+p.glow *= 0.94;
+for(let j = 0; j < rings.length; j++){
+const g = rings[j];
+const dx = p.x - g.x, dy = p.y - g.y;
+const d = Math.sqrt(dx * dx + dy * dy) || 1;
+const band = Math.abs(d - g.r);
+if(band < 22){
+const k = (1 - band / 22) * g.life;
+p.x += (dx / d) * k * 0.6;
+p.y += (dy / d) * k * 0.6;
+p.glow = Math.min(1, p.glow + k * 0.4);
 }
-size();
-window.addEventListener("resize", size);
-window.addEventListener("mousemove", function(e){ spawn(e.clientX, e.clientY); }, {passive: true});
-window.addEventListener("touchmove", function(e){ const t = e.touches[0]; if(t){ spawn(t.clientX, t.clientY); } }, {passive: true});
+}
+ctx.beginPath(); ctx.arc(p.x, p.y, p.r + p.glow * 0.9, 0, 6.2832);
+ctx.fillStyle = "rgba(" + (p.warm ? "200,164,92" : "168,32,26") + "," + Math.min(0.85, p.a + p.glow * 0.5).toFixed(3) + ")";
+ctx.fill();
+}
+for(let i = sparks.length - 1; i >= 0; i--){
+const s = sparks[i];
+s.x += s.vx * dt;
+s.y += s.vy * dt;
+s.vx *= 0.975;
+s.vy *= 0.975;
+s.life -= 0.016 * dt;
+if(s.life <= 0){ sparks.splice(i, 1); continue; }
+ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.2832);
+ctx.fillStyle = "rgba(" + (s.warm ? "230,213,173" : "200,164,92") + "," + (s.life * 0.75).toFixed(3) + ")";
+ctx.fill();
+}
+requestAnimationFrame(step);
+}
+resize();
+window.addEventListener("resize", resize);
+document.addEventListener("visibilitychange", function(){
+paused = document.hidden;
+if(!paused && !running){ running = true; last = performance.now(); requestAnimationFrame(step); }
+});
+window.addEventListener("mousemove", function(e){ spawn(e.clientX, e.clientY, false); }, {passive: true});
+window.addEventListener("touchmove", function(e){ const t = e.touches[0]; if(t){ spawn(t.clientX, t.clientY, false); } }, {passive: true});
+window.addEventListener("touchstart", function(e){ const t = e.touches[0]; if(t){ spawn(t.clientX, t.clientY, true); } }, {passive: true});
+window.addEventListener("mousedown", function(e){ spawn(e.clientX, e.clientY, true); }, {passive: true});
+running = true; last = performance.now(); requestAnimationFrame(step);
 })();
 </script>
 </body>
