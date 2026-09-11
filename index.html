@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#7a1210">
-<title>孙安俊 · 初心话剧社 · 人事组</title>
+<title>孙安俊 · 初心话剧社 · 人事组 / 灯光组</title>
 <style>
 :root{
 --red:#a8201a;
@@ -29,6 +29,7 @@ body{font-family:var(--body);color:var(--ink);background:var(--cream);line-heigh
 img{display:block;max-width:100%}
 ul{list-style:none}
 button{font-family:inherit;cursor:pointer}
+a{text-decoration:none;color:inherit}
 ::selection{background:var(--red);color:#fff}
 .noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 #ripple{position:fixed;inset:0;z-index:80;pointer-events:none}
@@ -43,19 +44,22 @@ button{font-family:inherit;cursor:pointer}
 .tab.active{background:var(--red);color:#fffdf9;border-color:var(--red);font-weight:700}
 .hero{position:relative;overflow:hidden;color:#f7f3ec;background:linear-gradient(160deg,#5e0d0b 0%,#8f1a15 34%,#a8201a 62%,#7a1210 100%);z-index:2}
 .hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(64% 48% at 18% 8%,rgba(255,235,200,.18),transparent 60%),radial-gradient(52% 42% at 92% 92%,rgba(200,164,92,.2),transparent 62%)}
-.hero-inner{position:relative;z-index:3;max-width:1160px;margin:0 auto;padding:34px 20px 30px}
+.hero-inner{position:relative;z-index:3;max-width:1160px;margin:0 auto;padding:32px 20px 28px}
 .hero-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:var(--en);font-size:10.5px;letter-spacing:2.4px;text-transform:uppercase;color:rgba(255,235,200,.68)}
 .hero-top .sep{width:22px;height:1px;background:var(--gold);opacity:.7}
-.display{font-family:var(--display);font-weight:900;margin:18px 0 0;line-height:.94;letter-spacing:.05em}
-.display .l1{display:block;font-size:clamp(2.6rem,13vw,7.4rem);color:#fffdf9;text-shadow:0 10px 40px rgba(0,0,0,.28)}
-.display .l2{display:block;font-size:clamp(2.6rem,13vw,7.4rem);color:transparent;-webkit-text-stroke:1.5px var(--gold);text-stroke:1.5px var(--gold);margin-top:.04em}
-.display .l3{display:block;font-size:clamp(1.35rem,5.6vw,3rem);color:var(--gold-soft);letter-spacing:.16em;margin-top:.2em}
+.display{font-family:var(--display);font-weight:900;margin:16px 0 0;line-height:.94;letter-spacing:.05em}
+.display .l1{display:block;font-size:clamp(2.5rem,12.5vw,7rem);color:#fffdf9;text-shadow:0 10px 40px rgba(0,0,0,.28)}
+.display .l2{display:block;font-size:clamp(2.5rem,12.5vw,7rem);color:transparent;-webkit-text-stroke:1.5px var(--gold);text-stroke:1.5px var(--gold);margin-top:.04em}
+.display .l3{display:block;font-size:clamp(1.3rem,5.2vw,2.8rem);color:var(--gold-soft);letter-spacing:.16em;margin-top:.2em}
 @supports not ((-webkit-text-stroke:1px red) or (text-stroke:1px red)){.display .l2{color:var(--gold-soft)}}
 .source{margin-top:12px;font-family:var(--kai);font-size:13px;letter-spacing:2px;color:rgba(255,235,200,.72)}
-.couplet{margin-top:22px;padding:15px 18px;border-left:2px solid var(--gold);background:rgba(255,253,249,.07);border-radius:0 12px 12px 0;font-family:var(--kai);font-size:clamp(14px,3.5vw,17.5px);letter-spacing:2px;color:#fffdf9;max-width:44ch}
-.hero-foot{margin-top:24px;font-size:14px;color:rgba(255,235,200,.9);letter-spacing:1.3px}
+.couplet{margin-top:20px;padding:15px 18px;border-left:2px solid var(--gold);background:rgba(255,253,249,.07);border-radius:0 12px 12px 0;font-family:var(--kai);font-size:clamp(14px,3.4vw,17px);letter-spacing:2px;color:#fffdf9;max-width:44ch}
+.hero-foot{margin-top:22px;font-size:14px;color:rgba(255,235,200,.9);letter-spacing:1.3px}
 .hero-foot b{color:var(--gold-soft)}
-.acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap;margin-top:18px}
+.hero-stats .st b{display:block;font-family:var(--display);font-weight:900;font-size:1.35rem;color:var(--gold)}
+.hero-stats .st span{font-family:var(--en);font-size:9px;letter-spacing:1.8px;color:rgba(255,235,200,.66);text-transform:uppercase}
+.acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .act{display:inline-flex;align-items:center;gap:7px;min-height:42px;padding:0 18px;border-radius:999px;border:1px solid rgba(230,213,173,.5);background:rgba(255,253,249,.09);color:#fffdf9;font-size:13.5px;letter-spacing:.6px;transition:background .2s,transform .2s}
 .act:hover{background:rgba(255,253,249,.2)}
 .act:active{transform:scale(.96)}
@@ -80,13 +84,14 @@ button{font-family:inherit;cursor:pointer}
 .quote .cn{font-family:var(--display);font-weight:900;font-size:clamp(1.1rem,4.2vw,1.5rem);letter-spacing:.06em;color:var(--red);line-height:1.5}
 .quote small{display:block;font-family:var(--en);font-size:9.5px;letter-spacing:2px;color:var(--ink-3);margin-top:8px;text-transform:uppercase}
 .idrow{display:grid;grid-template-columns:1fr;gap:14px;margin-top:24px}
-.idc{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 14px 36px rgba(74,40,20,.08);overflow:hidden;transition:transform .22s,box-shadow .22s}
-.idc:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(74,40,20,.14)}
+.idc{position:relative;display:block;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 14px 36px rgba(74,40,20,.08);overflow:hidden;transition:transform .22s,box-shadow .22s,border-color .22s}
+.idc:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 22px 50px rgba(74,40,20,.15)}
 .idc:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--red),var(--gold))}
 .idc .no{font-family:var(--en);font-size:11px;letter-spacing:2px;color:var(--gold)}
 .idc h3{font-family:var(--display);font-weight:900;font-size:1.35rem;letter-spacing:.04em;margin:6px 0 4px}
 .idc .en{font-family:var(--en);font-size:9.5px;letter-spacing:2.4px;color:var(--ink-3);text-transform:uppercase}
 .idc p{font-size:14px;color:var(--ink-2);margin-top:10px}
+.idc .go{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:var(--en);font-size:10px;letter-spacing:2px;color:var(--red);text-transform:uppercase}
 .portrait{display:flex;gap:18px;align-items:center;margin-bottom:22px;flex-wrap:wrap}
 .portrait img{width:104px;height:104px;border-radius:50%;object-fit:cover;border:3px solid var(--paper);box-shadow:0 10px 26px rgba(74,40,20,.18)}
 .portrait .pn{font-family:var(--display);font-weight:900;font-size:1.5rem;letter-spacing:.06em}
@@ -100,10 +105,8 @@ button{font-family:inherit;cursor:pointer}
 .card h3{font-family:var(--display);font-weight:900;font-size:1.3rem;letter-spacing:.04em;margin:6px 0 4px}
 .card .en{font-family:var(--en);font-size:9.5px;letter-spacing:2.4px;color:var(--ink-3);text-transform:uppercase}
 .card p{font-size:14px;color:var(--ink-2);margin-top:10px}
-.subtabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 4px}
-.subtab{font-size:12.5px;color:var(--ink-2);border:1px solid var(--line);background:var(--paper);padding:6px 14px;border-radius:999px}
 .gal{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-.fig{position:relative;border-radius:14px;overflow:hidden;background:#efe8dc;border:1px solid var(--line)}
+.fig{position:relative;border-radius:14px;overflow:hidden;background:#efe8dc;border:1px solid var(--line);display:block}
 .fig.wide{aspect-ratio:16/10}
 .fig.tall{aspect-ratio:3/4}
 .fig img{width:100%;height:100%;object-fit:cover;transition:transform .5s,opacity .6s}
@@ -111,7 +114,24 @@ button{font-family:inherit;cursor:pointer}
 .fig img.loaded{opacity:1}
 .fig:hover img{transform:scale(1.06)}
 .fig figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 10px;background:linear-gradient(to top,rgba(43,33,24,.88),transparent);color:#fffdf9;font-size:12px;letter-spacing:1.2px}
+.linkbars{display:grid;grid-template-columns:1fr;gap:12px;margin-top:22px}
+.lb{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--paper);transition:transform .2s,border-color .2s,box-shadow .2s}
+.lb:hover{transform:translateY(-3px);border-color:var(--red);box-shadow:0 18px 40px rgba(74,40,20,.13)}
+.lb .t{font-family:var(--display);font-weight:900;font-size:1.1rem;letter-spacing:.05em}
+.lb .d{font-family:var(--en);font-size:9.5px;letter-spacing:2px;color:var(--ink-3);text-transform:uppercase;margin-top:3px}
+.lb .arw{font-family:var(--en);color:var(--red);font-size:18px}
 .sec-sub{font-family:var(--en);font-size:10px;letter-spacing:2.6px;color:var(--ink-3);text-transform:uppercase;margin:26px 0 6px}
+.job{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 16px 40px rgba(74,40,20,.09);margin-bottom:16px}
+.job .jh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.job h3{font-family:var(--display);font-weight:900;font-size:1.6rem;letter-spacing:.06em;color:var(--red)}
+.job .je{font-family:var(--en);font-size:10px;letter-spacing:2.4px;color:var(--ink-3);text-transform:uppercase}
+.job .off{margin-top:12px;padding:12px 14px;border-radius:10px;background:rgba(168,32,26,.06);border:1px dashed rgba(168,32,26,.28);font-size:13.5px;color:var(--ink-2)}
+.job .off b{color:var(--red)}
+.job ul{margin-top:14px;display:flex;flex-direction:column;gap:9px}
+.job li{position:relative;padding-left:16px;font-size:14px;color:var(--ink-2)}
+.job li:before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.job .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.job .bdg{font-size:12px;color:var(--red);background:rgba(168,32,26,.07);border:1px solid rgba(168,32,26,.16);padding:4px 11px;border-radius:999px}
 .tl{position:relative;margin-top:24px;padding-left:26px}
 .tl:before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--red),var(--gold));opacity:.35;border-radius:2px}
 .tl li{position:relative;padding:0 0 20px}
@@ -120,7 +140,7 @@ button{font-family:inherit;cursor:pointer}
 .tl .when{font-family:var(--en);font-size:11px;letter-spacing:1.8px;color:var(--gold)}
 .tl .what{font-size:16px;color:var(--ink)}
 .tl .what b{color:var(--red);font-weight:700}
-.commit{display:grid;grid-template-columns:1fr;gap:14px;margin-top:24px}
+.commit{display:grid;grid-template-columns:1fr;gap:14px;margin-top:22px}
 .cm{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 14px 36px rgba(74,40,20,.08)}
 .cm h3{font-family:var(--display);font-weight:900;font-size:1.25rem;letter-spacing:.05em;color:var(--red);margin-bottom:8px}
 .cm p{font-size:14.5px;color:var(--ink-2)}
@@ -141,15 +161,14 @@ footer .kai{font-family:var(--display);font-weight:900;font-size:15px;color:var(
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media (min-width:760px){
-.hero-inner{padding:64px 24px 56px}
-.display .l1,.display .l2{font-size:clamp(4.5rem,10.5vw,8.2rem)}
+.hero-inner{padding:62px 24px 52px}
+.display .l1,.display .l2{font-size:clamp(4.2rem,10vw,7.8rem)}
 .wrap{padding:48px 24px 0}
 .idrow{grid-template-columns:repeat(3,1fr);gap:18px}
-.idrow.two{grid-template-columns:repeat(2,1fr)}
 .cards{grid-template-columns:1fr 1fr;gap:18px}
 .commit{grid-template-columns:1fr 1fr;gap:18px}
 .gal{gap:18px}
-.gal.three{grid-template-columns:repeat(3,1fr)}
+.linkbars{grid-template-columns:1fr 1fr}
 .contact{grid-template-columns:1fr 1fr 1fr}
 .contact .ci{flex-direction:column;align-items:flex-start;gap:5px}
 .hint{right:26px;bottom:26px}
@@ -161,13 +180,13 @@ footer .kai{font-family:var(--display);font-weight:900;font-size:15px;color:var(
 <canvas id="ripple" aria-hidden="true"></canvas>
 <nav class="nav">
 <div class="nav-inner">
-<span class="brand">初心<span class="dot"> · </span>人事组</span>
+<span class="brand">初心<span class="dot"> · </span>孙安俊</span>
 <div class="tabs" id="tabs">
 <button class="tab active" data-tab="about">关于</button>
 <button class="tab" data-tab="skills">能力</button>
 <button class="tab" data-tab="works">作品</button>
 <button class="tab" data-tab="honor">经历荣誉</button>
-<button class="tab" data-tab="fit">契合承诺</button>
+<button class="tab" data-tab="job">岗位契合</button>
 <button class="tab" data-tab="contact">联系方式</button>
 </div>
 </div>
@@ -175,16 +194,21 @@ footer .kai{font-family:var(--display);font-weight:900;font-size:15px;color:var(
 <header class="hero">
 <div class="hero-inner">
 <div class="hero-top">
-<span>Jiaxing University</span><span class="sep"></span><span>Original Drama Troupe</span><span class="sep"></span><span>Personnel Team</span>
+<span>Jiaxing University</span><span class="sep"></span><span>Original Drama Troupe</span><span class="sep"></span><span>Personnel · Lighting</span>
 </div>
 <h1 class="display">
 <span class="l1">天下大事</span>
 <span class="l2">必作于细</span>
-<span class="l3">初心 · 人事组</span>
+<span class="l3">初心 · 人事组 / 灯光组</span>
 </h1>
 <p class="source">——《道德经》第六十三章</p>
 <p class="couplet">一叶红船，始于至微；<br>一台好戏，成于至细。</p>
-<div class="hero-foot">孙安俊 ｜ 嘉兴大学 · <b>法学 262</b> · 大一 ｜ 应聘岗位：<b>人事组</b></div>
+<div class="hero-foot">孙安俊 ｜ 嘉兴大学 · <b>法学 262</b> · 大一 ｜ 应聘岗位：<b>人事组 · 灯光组</b></div>
+<div class="hero-stats">
+<div class="st"><b>180+</b><span>场巡演</span></div>
+<div class="st"><b>60+</b><span>座城市</span></div>
+<div class="st"><b>1000+</b><span>次媒体报道</span></div>
+</div>
 <div class="acts">
 <button class="act solid" data-copy="13291718551">复制电话</button>
 <button class="act" data-copy="QQ13291718551">复制微信</button>
@@ -204,11 +228,12 @@ footer .kai{font-family:var(--display);font-weight:900;font-size:15px;color:var(
 </div>
 <div class="prose">
 <p class="reveal">我来自浙江温州龙港——中国首个「镇改市」的县级市。十二年求学路把我带到南湖之畔，也把我带进嘉兴大学法学专业。小城的务实基因，让我习惯把<b>每一件事落在地上</b>。</p>
-<p class="reveal">屏幕这端，我还有两个身份：<span class="hl">AI 插画绘画师</span>与 <span class="hl">PPT 制作者</span>。前者向墨色与江南要画面，后者向结构与版式要清晰——它们教会我的同一件事，是<b>把想法做到能被看见</b>。</p>
+<p class="reveal">屏幕这端，我还有两个身份：<span class="hl">AI 插画绘画师</span>与 <span class="hl">PPT 制作者</span>。前者向墨色与江南要画面，后者向结构与版式要清晰——它们教会我的同一件事，是<b>把想法做到能被看见</b>。而「看得见的呈现」，正好是人事组与灯光组都在做的事。</p>
+<p class="reveal">点击下面两张卡片，可以进入我的独立作品页。</p>
 </div>
 <div class="idrow">
-<div class="idc reveal"><div class="no">01</div><h3>AI 插画绘画师</h3><div class="en">AI Illustrator</div><p>用提示词作画，偏爱水墨与江南水乡。已沉淀自己的绘画风格提示词库，能成组、可延展地出图。</p></div>
-<div class="idc reveal"><div class="no">02</div><h3>PPT 制作者</h3><div class="en">Presentation Designer</div><p>从叙事骨架到版式落地全流程。代表作《法学导论》读书分享，15 页一镜到底。</p></div>
+<a class="idc reveal" href="art.html"><div class="no">01</div><h3>AI 插画绘画师</h3><div class="en">AI Illustrator</div><p>用提示词作画，偏爱水墨与江南水乡。已沉淀自己的绘画风格提示词库，能成组、可延展地出图。</p><span class="go">查看绘画作品集 →</span></a>
+<a class="idc reveal" href="ppt.html"><div class="no">02</div><h3>PPT 制作者</h3><div class="en">Presentation Designer</div><p>从叙事骨架到版式落地全流程。代表作《法学导论》读书分享，15 页一镜到底。</p><span class="go">查看 PPT 作品集 →</span></a>
 <div class="idc reveal"><div class="no">03</div><h3>法学学生</h3><div class="en">Law Student</div><p>嘉兴大学法学 262，习惯用逻辑拆解问题。达摩院人工智能训练师初级、高级认证。</p></div>
 </div>
 <div class="quote reveal"><div class="cn">我不是天才型选手，而是稳定输出型选手。</div><small>Consistency over brilliance</small></div>
@@ -217,38 +242,39 @@ footer .kai{font-family:var(--display);font-weight:900;font-size:15px;color:var(
 <div class="eyebrow reveal"><span class="seal">贰</span><span class="en">Core Strengths</span></div>
 <h2 class="sec-title reveal">核心<span class="accent">能力</span></h2>
 <div class="h2line"></div>
-<p class="lead reveal">人事组要的是「灵活运用 Office 软件、耐心仔细、责任心强、有一定统筹能力」。这六项，正好一项一项对上。</p>
+<p class="lead reveal">人事组要「熟练 Office、耐心仔细、责任心强、能统筹」；灯光组要「能做视觉空间」。下面六项，正好把两个组的要求都接上。</p>
 <div class="cards">
 <div class="card reveal"><div class="no">01</div><h3>AI 插画创作</h3><div class="en">AI Illustration</div><p>提示词工程、风格提炼、图生图与系列化出图。已沉淀「写意江南·印象」「三段式记忆」「抽象四联」「星年水墨」等可复用风格卡。</p></div>
-<div class="card reveal"><div class="no">02</div><h3>PPT 与演示设计</h3><div class="en">Presentation Design</div><p>先搭叙事骨架（金字塔 / SCQA），再落版式。代表作《法学导论》读书分享；自建 615 页版式模块库与光效素材库，出稿稳定且快。</p></div>
-<div class="card reveal"><div class="no">03</div><h3>视觉与排版</h3><div class="en">Visual &amp; Layout</div><p>信息层级、配色、字体搭配、留白节奏。海报、通知、宣传物料这类「人事组日常产出」，我能直接上手做。</p></div>
+<div class="card reveal"><div class="no">02</div><h3>色彩与光影</h3><div class="en">Color &amp; Light</div><p>画一张画要定主光源、分冷暖、找明暗交界与视线落点。这套训练，正对着灯光组「用色彩与明暗打造视觉空间」的要求。</p></div>
+<div class="card reveal"><div class="no">03</div><h3>PPT 与演示设计</h3><div class="en">Presentation Design</div><p>先搭叙事骨架，再落版式。代表作《法学导论》读书分享；自建 615 页版式模块库与光效素材库，出稿稳定且快。</p></div>
 <div class="card reveal"><div class="no">04</div><h3>文档与办公</h3><div class="en">Office &amp; Docs</div><p>熟练使用办公软件，文档排版、表格整理、信息归档有条不紊；配合 AI 工具，把重复工作压缩成几步。</p></div>
 <div class="card reveal"><div class="no">05</div><h3>统筹协调</h3><div class="en">Coordination</div><p>高中三年担任团支部书记，熟悉通知、名单、流程、物料、时间点的完整调度，能把「要办的事」拆成「能办的事」。</p></div>
 <div class="card reveal"><div class="no">06</div><h3>细致与责任</h3><div class="en">Rigor &amp; Ownership</div><p>连续三年校「三好学生」，长期担任学科课代表，市级数学与物理竞赛双二等奖。答应的事按时完成，经手的事尽量不出差错。</p></div>
 </div>
 <div class="tags reveal">
-<span class="tag">AI 绘画</span><span class="tag">提示词工程</span><span class="tag">图生图</span><span class="tag">PPT 设计</span><span class="tag">版式与配色</span><span class="tag">Office</span><span class="tag">文档排版</span><span class="tag">活动统筹</span><span class="tag">法学逻辑</span><span class="tag">AI 提效</span>
+<span class="tag">AI 绘画</span><span class="tag">提示词工程</span><span class="tag">色彩与明暗</span><span class="tag">PPT 设计</span><span class="tag">版式与配色</span><span class="tag">舞台视觉</span><span class="tag">Office</span><span class="tag">文档排版</span><span class="tag">活动统筹</span><span class="tag">法学逻辑</span><span class="tag">AI 提效</span>
 </div>
 </section>
 <section class="panel" id="works">
 <div class="eyebrow reveal"><span class="seal">叁</span><span class="en">Selected Works</span></div>
 <h2 class="sec-title reveal">作品<span class="accent">展示</span></h2>
 <div class="h2line"></div>
-<p class="lead reveal">一边是拿起工具作画的能力，一边是把内容讲清楚的能力——这两件事，恰好都是人事组要用的。</p>
-<div class="sec-sub reveal">AI 插画 · 水墨与水乡</div>
-<div class="gal">
-<figure class="fig tall reveal"><img class="lazy" loading="lazy" decoding="async" src="ai-1.jpg" alt="AI插画 水乡古镇·三段式记忆"><figcaption>水乡古镇 · 三段式记忆</figcaption></figure>
-<figure class="fig tall reveal"><img class="lazy" loading="lazy" decoding="async" src="ai-2.jpg" alt="AI插画 水乡古镇·抽象四联"><figcaption>水乡古镇 · 抽象四联</figcaption></figure>
-<figure class="fig tall reveal"><img class="lazy" loading="lazy" decoding="async" src="ai-3.jpg" alt="AI插画 中式园林庭院"><figcaption>中式园林 · 水乡庭院</figcaption></figure>
-<figure class="fig tall reveal"><img class="lazy" loading="lazy" decoding="async" src="ai-4.jpg" alt="AI插画 月洞门庭院"><figcaption>月洞门 · 黄昏庭院</figcaption></figure>
-<figure class="fig tall reveal"><img class="lazy" loading="lazy" decoding="async" src="ai-5.jpg" alt="AI插画作品五"><figcaption>水墨写意 · 其一</figcaption></figure>
-<figure class="fig tall reveal"><img class="lazy" loading="lazy" decoding="async" src="ai-6.jpg" alt="AI插画作品六"><figcaption>水墨写意 · 其二</figcaption></figure>
+<p class="lead reveal">两个作品集都是独立页面，点进去看完整的。</p>
+<div class="linkbars">
+<a class="lb reveal" href="art.html"><span><span class="t">AI 绘画作品集</span><span class="d">水墨江南 · 拾景录 · 10 幅</span></span><span class="arw">→</span></a>
+<a class="lb reveal" href="ppt.html"><span><span class="t">PPT 作品集</span><span class="d">字里行间 · 版式有度 · 8 页精选</span></span><span class="arw">→</span></a>
 </div>
-<div class="sec-sub reveal">PPT 作品 · 《法学导论》读书分享</div>
-<div class="gal three">
-<figure class="fig wide reveal"><img class="lazy" loading="lazy" decoding="async" src="ppt-1.jpg" alt="PPT 封面页"><figcaption>封面页 · 学法律的第一步，居然不是背法条？</figcaption></figure>
-<figure class="fig wide reveal"><img class="lazy" loading="lazy" decoding="async" src="ppt-2.jpg" alt="PPT 内页"><figcaption>内页 · 论点与对比版式</figcaption></figure>
-<figure class="fig wide reveal"><img class="lazy" loading="lazy" decoding="async" src="ppt-3.jpg" alt="PPT 结语页"><figcaption>结语页 · 法律的本质</figcaption></figure>
+<div class="sec-sub reveal">AI 插画 · 精选</div>
+<div class="gal">
+<figure class="fig tall reveal"><img class="lazy" loading="lazy" decoding="async" src="ai-1.jpg" alt="水乡古镇·三段式记忆"><figcaption>水乡古镇 · 三段式记忆</figcaption></figure>
+<figure class="fig tall reveal"><img class="lazy" loading="lazy" decoding="async" src="ai-3.jpg" alt="中式园林·水乡庭院"><figcaption>中式园林 · 水乡庭院</figcaption></figure>
+<figure class="fig tall reveal"><img class="lazy" loading="lazy" decoding="async" src="ai-4.jpg" alt="月洞门·黄昏庭院"><figcaption>月洞门 · 黄昏庭院</figcaption></figure>
+<figure class="fig tall reveal"><img class="lazy" loading="lazy" decoding="async" src="ai-2.jpg" alt="水乡古镇·抽象四联"><figcaption>水乡古镇 · 抽象四联</figcaption></figure>
+</div>
+<div class="sec-sub reveal">PPT · 精选</div>
+<div class="gal">
+<figure class="fig wide reveal"><img class="lazy" loading="lazy" decoding="async" src="ppt-1.jpg" alt="PPT 封面页"><figcaption>封面页 · 法学导论读书分享</figcaption></figure>
+<figure class="fig wide reveal"><img class="lazy" loading="lazy" decoding="async" src="ppt-8.jpg" alt="PPT 章节页"><figcaption>章节页 · 主题阅读</figcaption></figure>
 </div>
 </section>
 <section class="panel" id="honor">
@@ -268,14 +294,36 @@ footer .kai{font-family:var(--display);font-weight:900;font-size:15px;color:var(
 <figure class="fig wide reveal"><img class="lazy" loading="lazy" decoding="async" src="honor-primary.jpg" alt="人工智能训练师（初级）证书"><figcaption>人工智能训练师 · 初级</figcaption></figure>
 </div>
 </section>
-<section class="panel" id="fit">
-<div class="eyebrow reveal"><span class="seal">伍</span><span class="en">Commitment</span></div>
-<h2 class="sec-title reveal">契合与<span class="accent">承诺</span></h2>
+<section class="panel" id="job">
+<div class="eyebrow reveal"><span class="seal">伍</span><span class="en">Why These Two</span></div>
+<h2 class="sec-title reveal">岗位<span class="accent">契合</span></h2>
 <div class="h2line"></div>
+<p class="lead reveal">我报了<b>两个组</b>：人事组管幕后的秩序，灯光组管台上的目光。一个靠细致，一个靠视觉，恰好都是我长期在练的东西。</p>
+<div class="job reveal">
+<div class="jh"><h3>人事组</h3><span class="je">Personnel Team</span></div>
+<div class="off">官方要求：<b>幕后的"中枢神经"、导演的贴心助手</b>；需要灵活运用 Office 等办公软件；欢迎耐心仔细、责任心强、有一定统筹能力的人。</div>
+<ul>
+<li>高中三年团支部书记：通知、名单、流程、物料、时间点，做过完整的调度与落地。</li>
+<li>Office + AI：文档排版、表格整理有方法，用 AI 把重复工作压缩成几步。</li>
+<li>宣传物料能直接做：海报、通知、演示稿，不必从零教起。</li>
+</ul>
+<div class="badges"><span class="bdg">统筹协调</span><span class="bdg">Office</span><span class="bdg">文案与物料</span><span class="bdg">细致负责</span></div>
+</div>
+<div class="job reveal">
+<div class="jh"><h3>灯光组</h3><span class="je">Lighting Team</span></div>
+<div class="off">官方要求：配合专业老师<b>控制演出灯光与舞台大屏</b>，用<b>色彩与明暗打造属于 1921 年的视觉空间</b>；对舞台技术感兴趣者优先。</div>
+<ul>
+<li>AI 插画是我的日常：定主光源、分冷暖、找明暗交界与画面焦点——和打光是同一套视觉语言。</li>
+<li>PPT 设计让我习惯用画面引导注意力：哪里亮、哪里暗、观众先看什么，都是我熟悉的判断。</li>
+<li>对舞台技术有兴趣，愿意从跟随老师、记流程、练操作开始，把每一场的光打成同一个样子。</li>
+</ul>
+<div class="badges"><span class="bdg">色彩与明暗</span><span class="bdg">视觉叙事</span><span class="bdg">大屏素材</span><span class="bdg">愿意学技术</span></div>
+</div>
+<p class="lead reveal" style="margin-top:20px">《初心》已经巡演 <b>180 多场</b>、走过 <b>60 多座城市</b>。越是这样的戏，越需要有人把每一场的细节对齐——这正是我想做的事。</p>
 <div class="commit">
 <div class="cm reveal"><h3>红色共鸣</h3><p>来到嘉兴的第一课，就是南湖红船。身处这片红色沃土，我明白《初心》这两个字的分量——那是一切开始的地方。我愿以敬畏之心参与其中。</p></div>
 <div class="cm reveal"><h3>愿意托举</h3><p>舞台的光打在演员身上，而戏的成败藏在幕后。我愿意做那个在后面把事办妥的人，让台上的人只管发光。</p></div>
-<div class="cm reveal"><h3>能立刻上手</h3><p>写文案、做海报、排 PPT、整表格、跟进度——人事组需要的产出，我大多已有现成的工具和方法，不用长周期适应。</p></div>
+<div class="cm reveal"><h3>能立刻上手</h3><p>写文案、做海报、排 PPT、整表格、跟进度——这两个组需要的产出，我大多已有现成的工具和方法。</p></div>
 <div class="cm reveal"><h3>空杯与承诺</h3><p>我坦诚：大一的我还没有大学阶段的舞台经验。但交代给我的事，按时完成；经我手的事，尽量不出差错。</p></div>
 </div>
 </section>
@@ -291,13 +339,13 @@ footer .kai{font-family:var(--display);font-weight:900;font-size:15px;color:var(
 </div>
 <div class="ending reveal">
 <div class="big">以我之能，为他人助</div>
-<small>Sun Anjun · Looking forward to joining Chuxin</small>
+<small>Sun Anjun · Personnel Team &amp; Lighting Team</small>
 </div>
 </section>
 </main>
 <footer>
 <div class="kai">初心不改 行稳致远</div>
-孙安俊 · 初心话剧社人事组面试 · 2026
+孙安俊 · 初心话剧社 人事组 / 灯光组 · 2026
 </footer>
 <div id="toast">已复制</div>
 <script>
@@ -381,8 +429,7 @@ ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 function spawn(x, y){
 const now = performance.now();
 const dx = x - lx, dy = y - ly;
-const d = Math.sqrt(dx * dx + dy * dy);
-if(now - lt < 110 || d < 24){ return; }
+if(now - lt < 110 || Math.sqrt(dx * dx + dy * dy) < 24){ return; }
 lx = x; ly = y; lt = now;
 ripples.push({x: x, y: y, r: 5, life: 1});
 if(ripples.length > 22){ ripples.shift(); }
