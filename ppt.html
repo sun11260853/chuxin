@@ -52,23 +52,28 @@ a{text-decoration:none;color:inherit}
 .stats .st span{font-family:var(--en);font-size:9.5px;letter-spacing:2px;color:rgba(255,235,200,.7);text-transform:uppercase}
 .hint{position:absolute;right:20px;bottom:20px;z-index:4;font-family:var(--en);font-size:9.5px;letter-spacing:2.4px;color:rgba(255,235,200,.6);text-transform:uppercase;writing-mode:vertical-rl}
 .hint:after{content:"";display:block;width:1px;height:30px;margin:8px auto 0;background:linear-gradient(var(--gold),transparent)}
-.wrap{max-width:1160px;margin:0 auto;padding:40px 18px 0;position:relative;z-index:2}
-.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
-.sec-head h2{font-family:var(--display);font-weight:900;font-size:clamp(1.5rem,5.5vw,2.3rem);letter-spacing:.05em}
-.sec-head .en{font-family:var(--en);font-size:10px;letter-spacing:2.6px;color:var(--ink-3);text-transform:uppercase}
-.h2line{width:48px;height:3px;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:2px;margin:14px 0 22px}
-.gal{display:grid;grid-template-columns:1fr;gap:14px}
-.fig{position:relative;border-radius:14px;overflow:hidden;background:#efe8dc;border:1px solid var(--line);cursor:zoom-in;box-shadow:0 14px 34px rgba(74,40,20,.12)}
-.fig.wide{aspect-ratio:16/10}
-.fig img{width:100%;height:100%;object-fit:cover;transition:transform .55s,opacity .6s}
-.fig img.lazy{opacity:0}
-.fig img.loaded{opacity:1}
-.fig:hover img{transform:scale(1.05)}
-.fig figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(to top,rgba(43,33,24,.9),transparent);color:#fffdf9;font-size:13px;letter-spacing:1.2px}
-.fig .pl{position:absolute;left:12px;top:12px;font-family:var(--en);font-size:9px;letter-spacing:1.6px;color:#fffdf9;background:rgba(94,13,11,.72);border:1px solid rgba(230,213,173,.4);border-radius:999px;padding:3px 9px}
-.note{margin-top:26px;padding:20px 22px;border-left:3px solid var(--gold);background:rgba(200,164,92,.09);border-radius:0 12px 12px 0}
+.wrap{max-width:1160px;margin:0 auto;padding:34px 18px 0;position:relative;z-index:2}
+.decknav{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
+.decknav::-webkit-scrollbar{display:none}
+.decknav a{flex:none;font-size:13px;color:var(--ink-2);background:var(--paper);border:1px solid var(--line);padding:8px 15px;border-radius:999px;white-space:nowrap;transition:color .2s,border-color .2s}
+.decknav a:hover{color:var(--red);border-color:var(--red)}
+.deck{margin-top:34px;scroll-margin-top:74px}
+.deckhead{border-left:3px solid var(--red);padding-left:16px;margin-bottom:6px}
+.deckhead .no{font-family:var(--en);font-size:10px;letter-spacing:2.4px;color:var(--gold);text-transform:uppercase}
+.deckhead h2{font-family:var(--display);font-weight:900;font-size:clamp(1.4rem,5.6vw,2.2rem);letter-spacing:.05em;margin:6px 0 4px}
+.deckhead .meta{font-family:var(--en);font-size:10px;letter-spacing:2px;color:var(--ink-3);text-transform:uppercase}
+.deckdesc{margin-top:12px;font-size:14.5px;color:var(--ink-2);max-width:74ch}
+.h2line{width:48px;height:3px;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:2px;margin:16px 0 20px}
+.slides{display:flex;flex-direction:column;gap:14px;margin-top:18px}
+.slide{position:relative;border-radius:12px;overflow:hidden;background:#efe8dc;border:1px solid var(--line);cursor:zoom-in;box-shadow:0 14px 34px rgba(74,40,20,.12);aspect-ratio:16/10}
+.slide img{width:100%;height:100%;object-fit:cover;transition:transform .55s,opacity .6s}
+.slide img.lazy{opacity:0}
+.slide img.loaded{opacity:1}
+.slide:hover img{transform:scale(1.02)}
+.slide .pn{position:absolute;left:10px;top:10px;font-family:var(--en);font-size:9px;letter-spacing:1.6px;color:#fffdf9;background:rgba(94,13,11,.7);border:1px solid rgba(230,213,173,.4);border-radius:999px;padding:3px 9px}
+.note{margin-top:30px;padding:20px 22px;border-left:3px solid var(--gold);background:rgba(200,164,92,.09);border-radius:0 12px 12px 0}
 .note .cn{font-family:var(--display);font-weight:900;font-size:clamp(1.05rem,4vw,1.4rem);letter-spacing:.06em;color:var(--red);line-height:1.6}
-.more{margin-top:38px;display:grid;grid-template-columns:1fr;gap:12px}
+.more{margin-top:36px;display:grid;grid-template-columns:1fr;gap:12px}
 .mbtn{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--paper);transition:transform .2s,border-color .2s,box-shadow .2s}
 .mbtn:hover{transform:translateY(-3px);border-color:var(--red);box-shadow:0 18px 40px rgba(74,40,20,.13)}
 .mbtn .t{font-family:var(--display);font-weight:900;font-size:1.1rem;letter-spacing:.05em}
@@ -78,15 +83,14 @@ footer{margin-top:40px;padding:30px 18px 44px;border-top:1px solid var(--line);t
 footer .kai{font-family:var(--display);font-weight:900;font-size:15px;color:var(--red);letter-spacing:6px;margin-bottom:8px}
 .lb{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;background:rgba(20,12,10,.92);padding:20px}
 .lb.show{display:flex}
-.lb img{max-width:96vw;max-height:86vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
-.lb .cap{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#f7f3ec;font-family:var(--kai);font-size:14px;letter-spacing:2px}
+.lb img{max-width:96vw;max-height:88vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.8,.36,1)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media (min-width:760px){
 .pagehero .inner{padding:70px 24px 58px}
-.wrap{padding:56px 24px 0}
-.gal{grid-template-columns:1fr 1fr;gap:18px}
+.wrap{padding:50px 24px 0}
+.slides{gap:20px}
 .more{grid-template-columns:1fr 1fr}
 .hint{right:26px;bottom:26px}
 }
@@ -103,35 +107,94 @@ footer .kai{font-family:var(--display);font-weight:900;font-size:15px;color:var(
 </nav>
 <header class="pagehero">
 <div class="inner">
-<p class="eyebrow-en">Presentation Design · Reading Notes</p>
+<p class="eyebrow-en">Presentation Design · Full Decks</p>
 <h1 class="display">
 <span class="l1">字里行间</span>
 <span class="l2">版式有度</span>
 </h1>
-<p class="sub">《法学导论》读书分享 · 15 页一镜到底</p>
-<p class="desc">先把书读成一条线——检视阅读、分析阅读、主题阅读；再把这条线排成一套页面。叙事骨架定了，版式才有依据：每一页只讲一件事，用层级、留白与配色把读者的视线引到该看的地方。这是我做 PPT 的固定方法。</p>
+<p class="sub">三份完整演示，一页不删</p>
+<p class="desc">这里放的不是挑出来的页面，而是三份完整 PPT。先把书或事读成一条线，再把这条线排成一套页面——叙事骨架定了，版式才有依据。往下滑，就是一整份、一整份地翻。</p>
 <div class="stats">
-<div class="st"><b>15</b><span>Pages</span></div>
-<div class="st"><b>3</b><span>Reading Passes</span></div>
-<div class="st"><b>615</b><span>Layout Modules</span></div>
+<div class="st"><b>3</b><span>Decks</span></div>
+<div class="st"><b>33</b><span>Slides</span></div>
+<div class="st"><b>100%</b><span>Full Content</span></div>
 </div>
 </div>
-<div class="hint">Deck</div>
+<div class="hint">Decks</div>
 </header>
 <main class="wrap">
-<div class="sec-head reveal"><h2>作品页选</h2><span class="en">Selected Slides</span></div>
-<div class="h2line"></div>
-<div class="gal">
-<figure class="fig wide reveal"><span class="pl">01 / 15</span><img class="lazy" loading="lazy" decoding="async" src="ppt-1.jpg" alt="封面页"><figcaption>封面页 · 学法律的第一步，居然不是背法条？</figcaption></figure>
-<figure class="fig wide reveal"><span class="pl">02 / 15</span><img class="lazy" loading="lazy" decoding="async" src="ppt-4.jpg" alt="目录页"><figcaption>目录页 · 四个问题，读懂这本书</figcaption></figure>
-<figure class="fig wide reveal"><span class="pl">05 / 15</span><img class="lazy" loading="lazy" decoding="async" src="ppt-5.jpg" alt="章节页 检视阅读"><figcaption>章节页 · 01 检视阅读</figcaption></figure>
-<figure class="fig wide reveal"><span class="pl">06 / 15</span><img class="lazy" loading="lazy" decoding="async" src="ppt-6.jpg" alt="内容页 三大模块"><figcaption>内容页 · 本书的三大模块</figcaption></figure>
-<figure class="fig wide reveal"><span class="pl">08 / 15</span><img class="lazy" loading="lazy" decoding="async" src="ppt-2.jpg" alt="内页 对比版式"><figcaption>内页 · 论点一：词源学的震撼</figcaption></figure>
-<figure class="fig wide reveal"><span class="pl">10 / 15</span><img class="lazy" loading="lazy" decoding="async" src="ppt-7.jpg" alt="内容页 三种国家"><figcaption>内容页 · 法律的目的，对应三种国家</figcaption></figure>
-<figure class="fig wide reveal"><span class="pl">13 / 15</span><img class="lazy" loading="lazy" decoding="async" src="ppt-8.jpg" alt="章节页 主题阅读"><figcaption>章节页 · 03 主题阅读</figcaption></figure>
-<figure class="fig wide reveal"><span class="pl">15 / 15</span><img class="lazy" loading="lazy" decoding="async" src="ppt-3.jpg" alt="结语页"><figcaption>结语页 · 法律的本质，是让人活得像个人</figcaption></figure>
+<div class="decknav">
+<a href="#deck1">壹 ·《法学导论》读书分享 · 15 页</a>
+<a href="#deck2">贰 · 班级班委竞选 · 9 页</a>
+<a href="#deck3">叁 · 以我之能，为他人助 · 9 页</a>
 </div>
-<div class="note reveal"><div class="cn">版式不是装饰，是把话说清楚的手段。</div><p style="margin-top:8px;font-size:14px;color:var(--ink-2)">做通知、排名单、出宣传物料，本质上都是同一件事：让信息一目了然、不出差错。这套方法，我可以直接用在人事组的日常工作里。</p></div>
+<section class="deck" id="deck1">
+<div class="deckhead">
+<div class="no">Deck 01 / 15 Slides</div>
+<h2>《法学导论》读书分享</h2>
+<div class="meta">Reading Notes · Radbruch · 2026</div>
+</div>
+<div class="h2line"></div>
+<p class="deckdesc">用三次阅读——检视阅读、分析阅读、主题阅读——把一本法学经典读成一条线，再做成一页一屏的演示。完整 15 页如下。</p>
+<div class="slides">
+<figure class="slide reveal"><span class="pn">01 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-01.jpg" alt="第1页"></figure>
+<figure class="slide reveal"><span class="pn">02 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-02.jpg" alt="第2页"></figure>
+<figure class="slide reveal"><span class="pn">03 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-03.jpg" alt="第3页"></figure>
+<figure class="slide reveal"><span class="pn">04 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-04.jpg" alt="第4页"></figure>
+<figure class="slide reveal"><span class="pn">05 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-05.jpg" alt="第5页"></figure>
+<figure class="slide reveal"><span class="pn">06 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-06.jpg" alt="第6页"></figure>
+<figure class="slide reveal"><span class="pn">07 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-07.jpg" alt="第7页"></figure>
+<figure class="slide reveal"><span class="pn">08 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-08.jpg" alt="第8页"></figure>
+<figure class="slide reveal"><span class="pn">09 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-09.jpg" alt="第9页"></figure>
+<figure class="slide reveal"><span class="pn">10 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-10.jpg" alt="第10页"></figure>
+<figure class="slide reveal"><span class="pn">11 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-11.jpg" alt="第11页"></figure>
+<figure class="slide reveal"><span class="pn">12 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-12.jpg" alt="第12页"></figure>
+<figure class="slide reveal"><span class="pn">13 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-13.jpg" alt="第13页"></figure>
+<figure class="slide reveal"><span class="pn">14 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-14.jpg" alt="第14页"></figure>
+<figure class="slide reveal"><span class="pn">15 / 15</span><img class="lazy" loading="lazy" decoding="async" src="d1-15.jpg" alt="第15页"></figure>
+</div>
+</section>
+<section class="deck" id="deck2">
+<div class="deckhead">
+<div class="no">Deck 02 / 9 Slides</div>
+<h2>班级班委竞选 · 团支部书记</h2>
+<div class="meta">Class Committee Election · 2026</div>
+</div>
+<div class="h2line"></div>
+<p class="deckdesc">一份完整的竞选演示：从「我是谁」讲起，到竞选目标、核心优势、过往成就与最后的承诺。完整 9 页如下。</p>
+<div class="slides">
+<figure class="slide reveal"><span class="pn">01 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d2-01.jpg" alt="第1页"></figure>
+<figure class="slide reveal"><span class="pn">02 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d2-02.jpg" alt="第2页"></figure>
+<figure class="slide reveal"><span class="pn">03 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d2-03.jpg" alt="第3页"></figure>
+<figure class="slide reveal"><span class="pn">04 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d2-04.jpg" alt="第4页"></figure>
+<figure class="slide reveal"><span class="pn">05 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d2-05.jpg" alt="第5页"></figure>
+<figure class="slide reveal"><span class="pn">06 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d2-06.jpg" alt="第6页"></figure>
+<figure class="slide reveal"><span class="pn">07 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d2-07.jpg" alt="第7页"></figure>
+<figure class="slide reveal"><span class="pn">08 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d2-08.jpg" alt="第8页"></figure>
+<figure class="slide reveal"><span class="pn">09 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d2-09.jpg" alt="第9页"></figure>
+</div>
+</section>
+<section class="deck" id="deck3">
+<div class="deckhead">
+<div class="no">Deck 03 / 9 Slides</div>
+<h2>以我之能，为他人助</h2>
+<div class="meta">League Secretary Election · 2026</div>
+</div>
+<div class="h2line"></div>
+<p class="deckdesc">另一版竞选演示：讲清红色情怀、经验积累与行动导向，从能力盘点讲到「桥梁」角色与共同成长的愿景。完整 9 页如下。</p>
+<div class="slides">
+<figure class="slide reveal"><span class="pn">01 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d3-01.jpg" alt="第1页"></figure>
+<figure class="slide reveal"><span class="pn">02 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d3-02.jpg" alt="第2页"></figure>
+<figure class="slide reveal"><span class="pn">03 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d3-03.jpg" alt="第3页"></figure>
+<figure class="slide reveal"><span class="pn">04 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d3-04.jpg" alt="第4页"></figure>
+<figure class="slide reveal"><span class="pn">05 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d3-05.jpg" alt="第5页"></figure>
+<figure class="slide reveal"><span class="pn">06 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d3-06.jpg" alt="第6页"></figure>
+<figure class="slide reveal"><span class="pn">07 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d3-07.jpg" alt="第7页"></figure>
+<figure class="slide reveal"><span class="pn">08 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d3-08.jpg" alt="第8页"></figure>
+<figure class="slide reveal"><span class="pn">09 / 09</span><img class="lazy" loading="lazy" decoding="async" src="d3-09.jpg" alt="第9页"></figure>
+</div>
+</section>
+<div class="note reveal"><div class="cn">版式不是装饰，是把话说清楚的手段。</div><p style="margin-top:8px;font-size:14px;color:var(--ink-2)">做通知、排名单、出宣传物料，本质上都是同一件事：让信息一目了然、不出差错。这套方法，我可以直接用在人事组的日常工作里；而一套页面的光影与节奏感，也正是灯光组要在舞台上做的事。</p></div>
 <div class="more">
 <a class="mbtn reveal" href="art.html"><span><span class="t">看 AI 绘画作品集</span><span class="d">AI Illustration</span></span><span class="arw">→</span></a>
 <a class="mbtn reveal" href="index.html"><span><span class="t">返回主页</span><span class="d">Back to Profile</span></span><span class="arw">→</span></a>
@@ -139,11 +202,11 @@ footer .kai{font-family:var(--display);font-weight:900;font-size:15px;color:var(
 </main>
 <footer>
 <div class="kai">字里行间 版式有度</div>
-孙安俊 · PPT 作品集 · 2026
+孙安俊 · PPT 作品集 · 三份完整演示 · 2026
 </footer>
-<div class="lb" id="lb"><img id="lbimg" alt=""><div class="cap" id="lbcap"></div></div>
+<div class="lb" id="lb"><img id="lbimg" alt=""></div>
 <script>
-const observer = new IntersectionObserver(onReveal, {threshold: 0.1, rootMargin: "0px 0px -5% 0px"});
+const observer = new IntersectionObserver(onReveal, {threshold: 0.06, rootMargin: "0px 0px -4% 0px"});
 function onReveal(entries){
 entries.forEach(function(e){
 if(e.isIntersecting){ e.target.classList.add("in"); observer.unobserve(e.target); }
@@ -159,13 +222,10 @@ img.addEventListener("error", mark, {once:true});
 });
 const lb = document.getElementById("lb");
 const lbimg = document.getElementById("lbimg");
-const lbcap = document.getElementById("lbcap");
-document.querySelectorAll(".fig").forEach(function(f){
+document.querySelectorAll(".slide").forEach(function(f){
 f.addEventListener("click", function(){
 const im = f.querySelector("img");
-const cap = f.querySelector("figcaption");
 lbimg.src = im.getAttribute("src");
-lbcap.textContent = cap ? cap.textContent : "";
 lb.classList.add("show");
 });
 });
@@ -173,52 +233,128 @@ lb.addEventListener("click", function(){ lb.classList.remove("show"); lbimg.src 
 document.addEventListener("keydown", function(e){ if(e.key === "Escape"){ lb.classList.remove("show"); lbimg.src = ""; } });
 (function(){
 const c = document.getElementById("ripple");
-if(!c){ return; }
+if(!c || !c.getContext){ return; }
 if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches){ return; }
 const ctx = c.getContext("2d");
-const dpr = Math.min(window.devicePixelRatio || 1, 2);
-let ripples = [], running = false, lx = -999, ly = -999, lt = 0;
-function size(){
-c.width = Math.floor(window.innerWidth * dpr);
-c.height = Math.floor(window.innerHeight * dpr);
-c.style.width = window.innerWidth + "px";
-c.style.height = window.innerHeight + "px";
-ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+const coarse = !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+let W = 0, H = 0, DPR = 1;
+const rings = [], dust = [], sparks = [];
+let lx = -9999, ly = -9999, lt = 0, nextAmbient = 0, last = 0, running = false, paused = false;
+function resize(){
+DPR = Math.min(window.devicePixelRatio || 1, coarse ? 1.5 : 2);
+W = window.innerWidth;
+H = window.innerHeight;
+c.width = Math.floor(W * DPR);
+c.height = Math.floor(H * DPR);
+c.style.width = W + "px";
+c.style.height = H + "px";
+ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+seed();
 }
-function spawn(x, y){
+function seed(){
+const n = coarse ? Math.min(44, Math.round(W * H / 16000)) : Math.min(115, Math.round(W * H / 13000));
+dust.length = 0;
+for(let i = 0; i < n; i++){
+dust.push({x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.26, vy: (Math.random() - 0.5) * 0.26, r: 0.8 + Math.random() * 1.9, a: 0.18 + Math.random() * 0.32, glow: 0, warm: Math.random() < 0.62});
+}
+}
+function addRing(x, y, big){
+rings.push({x: x, y: y, r: 4, max: big ? 300 : 175, life: 1, sp: big ? 3.4 : 2.1});
+const cap = coarse ? 12 : 22;
+while(rings.length > cap){ rings.shift(); }
+if(big){
+for(let i = 0; i < 22; i++){
+const a = (i / 22) * 6.2832 + Math.random() * 0.3;
+const v = 1.2 + Math.random() * 2.2;
+sparks.push({x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, r: 1 + Math.random() * 1.6, life: 1, warm: Math.random() < 0.55});
+}
+}
+if(!running){ running = true; last = performance.now(); requestAnimationFrame(step); }
+}
+function spawn(x, y, big){
 const now = performance.now();
 const dx = x - lx, dy = y - ly;
-if(now - lt < 110 || Math.sqrt(dx * dx + dy * dy) < 24){ return; }
+if(!big && (now - lt < 70 || Math.sqrt(dx * dx + dy * dy) < 16)){ return; }
 lx = x; ly = y; lt = now;
-ripples.push({x: x, y: y, r: 5, life: 1});
-if(ripples.length > 22){ ripples.shift(); }
-if(!running){ running = true; requestAnimationFrame(step); }
+addRing(x, y, !!big);
 }
-function step(){
-const w = window.innerWidth, h = window.innerHeight;
-ctx.clearRect(0, 0, w, h);
-for(let i = ripples.length - 1; i >= 0; i--){
-const rp = ripples[i];
-rp.r += 1.5;
-rp.life -= 0.017;
-if(rp.life <= 0){ ripples.splice(i, 1); continue; }
-ctx.beginPath();
-ctx.arc(rp.x, rp.y, rp.r, 0, 6.2832);
-ctx.strokeStyle = "rgba(200,164,92," + (rp.life * 0.34).toFixed(3) + ")";
-ctx.lineWidth = 1.5;
+function step(now){
+if(paused){ running = false; return; }
+const dt = Math.min(2.2, (now - last) / 16.667) || 1;
+last = now;
+ctx.clearRect(0, 0, W, H);
+if(now > nextAmbient){
+nextAmbient = now + (coarse ? 2400 : 1700) + Math.random() * 1600;
+addRing(W * 0.12 + Math.random() * W * 0.76, H * 0.14 + Math.random() * H * 0.68, false);
+}
+for(let i = rings.length - 1; i >= 0; i--){
+const g = rings[i];
+g.r += g.sp * dt;
+g.life -= 0.011 * dt;
+if(g.life <= 0 || g.r > g.max){ rings.splice(i, 1); continue; }
+ctx.beginPath(); ctx.arc(g.x, g.y, g.r, 0, 6.2832);
+ctx.strokeStyle = "rgba(200,164,92," + (g.life * 0.55).toFixed(3) + ")";
+ctx.lineWidth = 1.9;
 ctx.stroke();
-ctx.beginPath();
-ctx.arc(rp.x, rp.y, rp.r * 0.58, 0, 6.2832);
-ctx.strokeStyle = "rgba(168,32,26," + (rp.life * 0.2).toFixed(3) + ")";
+ctx.beginPath(); ctx.arc(g.x, g.y, g.r * 0.72, 0, 6.2832);
+ctx.strokeStyle = "rgba(200,164,92," + (g.life * 0.3).toFixed(3) + ")";
+ctx.lineWidth = 1.2;
+ctx.stroke();
+ctx.beginPath(); ctx.arc(g.x, g.y, g.r * 0.46, 0, 6.2832);
+ctx.strokeStyle = "rgba(168,32,26," + (g.life * 0.28).toFixed(3) + ")";
 ctx.lineWidth = 1;
 ctx.stroke();
 }
-if(ripples.length){ requestAnimationFrame(step); } else { running = false; ctx.clearRect(0, 0, w, h); }
+for(let i = 0; i < dust.length; i++){
+const p = dust[i];
+p.x += p.vx * dt;
+p.y += p.vy * dt;
+if(p.x < -24){ p.x = W + 24; }
+if(p.x > W + 24){ p.x = -24; }
+if(p.y < -24){ p.y = H + 24; }
+if(p.y > H + 24){ p.y = -24; }
+p.glow *= 0.94;
+for(let j = 0; j < rings.length; j++){
+const g = rings[j];
+const dx = p.x - g.x, dy = p.y - g.y;
+const d = Math.sqrt(dx * dx + dy * dy) || 1;
+const band = Math.abs(d - g.r);
+if(band < 22){
+const k = (1 - band / 22) * g.life;
+p.x += (dx / d) * k * 0.6;
+p.y += (dy / d) * k * 0.6;
+p.glow = Math.min(1, p.glow + k * 0.4);
 }
-size();
-window.addEventListener("resize", size);
-window.addEventListener("mousemove", function(e){ spawn(e.clientX, e.clientY); }, {passive: true});
-window.addEventListener("touchmove", function(e){ const t = e.touches[0]; if(t){ spawn(t.clientX, t.clientY); } }, {passive: true});
+}
+ctx.beginPath(); ctx.arc(p.x, p.y, p.r + p.glow * 0.9, 0, 6.2832);
+ctx.fillStyle = "rgba(" + (p.warm ? "200,164,92" : "168,32,26") + "," + Math.min(0.85, p.a + p.glow * 0.5).toFixed(3) + ")";
+ctx.fill();
+}
+for(let i = sparks.length - 1; i >= 0; i--){
+const s = sparks[i];
+s.x += s.vx * dt;
+s.y += s.vy * dt;
+s.vx *= 0.975;
+s.vy *= 0.975;
+s.life -= 0.016 * dt;
+if(s.life <= 0){ sparks.splice(i, 1); continue; }
+ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.2832);
+ctx.fillStyle = "rgba(" + (s.warm ? "230,213,173" : "200,164,92") + "," + (s.life * 0.75).toFixed(3) + ")";
+ctx.fill();
+}
+requestAnimationFrame(step);
+}
+resize();
+window.addEventListener("resize", resize);
+document.addEventListener("visibilitychange", function(){
+paused = document.hidden;
+if(!paused && !running){ running = true; last = performance.now(); requestAnimationFrame(step); }
+});
+window.addEventListener("mousemove", function(e){ spawn(e.clientX, e.clientY, false); }, {passive: true});
+window.addEventListener("touchmove", function(e){ const t = e.touches[0]; if(t){ spawn(t.clientX, t.clientY, false); } }, {passive: true});
+window.addEventListener("touchstart", function(e){ const t = e.touches[0]; if(t){ spawn(t.clientX, t.clientY, true); } }, {passive: true});
+window.addEventListener("mousedown", function(e){ spawn(e.clientX, e.clientY, true); }, {passive: true});
+running = true; last = performance.now(); requestAnimationFrame(step);
 })();
 </script>
 </body>
